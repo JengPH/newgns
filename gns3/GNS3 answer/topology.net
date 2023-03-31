@@ -1,0 +1,192 @@
+autostart = False
+version = 0.8.6
+[127.0.0.1:7200]
+    workingdir = C:\Users\ADMINI~1\AppData\Local\Temp
+    udp = 10001
+    [[3725]]
+        image = C:\Users\Administrator\Downloads\C3725-AD.BIN
+        ram = 128
+        sparsemem = True
+        ghostios = True
+    [[ROUTER R1]]
+        model = 3725
+        console = 2101
+        aux = 2501
+        cnfg = configs\R1.cfg
+        f0/0 = SW1 1
+        f0/1 = R3 f0/0
+        x = -383.0
+        y = -166.0
+        z = 1.0
+    [[ROUTER R2]]
+        model = 3725
+        console = 2103
+        aux = 2503
+        cnfg = configs\R2.cfg
+        f0/0 = R3 f0/1
+        f0/1 = SW2 1
+        x = 78.0
+        y = -163.0
+        z = 1.0
+    [[ROUTER PC2]]
+        model = 3725
+        console = 2104
+        aux = 2504
+        cnfg = configs\PC2.cfg
+        f0/0 = SW2 2
+        slot1 = NM-16ESW
+        symbol = computer
+        x = 161.0
+        y = 60.0
+        z = 1.0
+        hx = 17.5
+        hy = -31.0
+    [[ROUTER PC1]]
+        model = 3725
+        console = 2102
+        aux = 2502
+        cnfg = configs\PC1.cfg
+        f0/0 = SW1 2
+        slot1 = NM-16ESW
+        symbol = computer
+        x = -464.0
+        y = 82.0
+        z = 1.0
+        hx = 18.5
+        hy = -37.0
+    [[ETHSW SW1]]
+        1 = access 1 R1 f0/0
+        2 = access 1 PC1 f0/0
+        3 = access 1 PC3 f0/0
+        x = -395.5
+        y = -30.0
+        z = 1.0
+    [[ETHSW SW2]]
+        1 = access 1 R2 f0/1
+        2 = access 1 PC2 f0/0
+        3 = access 1 PC4 f0/0
+        x = 53.5
+        y = -19.0
+        z = 1.0
+[127.0.0.1:7201]
+    workingdir = C:\Users\ADMINI~1\AppData\Local\Temp
+    udp = 10101
+    [[3725]]
+        image = C:\Users\Administrator\Downloads\C3725-AD.BIN
+        ram = 128
+        sparsemem = True
+        ghostios = True
+    [[ROUTER R3]]
+        model = 3725
+        console = 2113
+        aux = 2513
+        cnfg = configs\R3.cfg
+        f0/0 = R1 f0/1
+        f0/1 = R2 f0/0
+        x = -148.0
+        y = -161.0
+        z = 1.0
+    [[ROUTER PC3]]
+        model = 3725
+        console = 2106
+        aux = 2506
+        cnfg = configs\PC3.cfg
+        f0/0 = SW1 3
+        slot1 = NM-16ESW
+        symbol = computer
+        x = -314.0
+        y = 79.0
+        z = 1.0
+    [[ROUTER PC4]]
+        model = 3725
+        console = 2107
+        aux = 2507
+        cnfg = configs\PC4.cfg
+        f0/0 = SW2 3
+        slot1 = NM-16ESW
+        symbol = computer
+        x = -25.0
+        y = 60.0
+        z = 1.0
+[GNS3-DATA]
+    configs = configs
+    [[NOTE 1]]
+        text = "f0/1"
+        x = 72.9984337986
+        y = 21.6460315593
+        interface = R3 f0/1
+    [[NOTE 2]]
+        text = "f0/0"
+        x = -6.99094920228
+        y = 21.1491287404
+        interface = R3 f0/0
+    [[NOTE 3]]
+        text = "f0/0"
+        x = 58.9433964494
+        y = -0.51244382289
+        interface = PC4 f0/0
+    [[NOTE 4]]
+        text = "f0/0"
+        x = 10.9183519641
+        y = -4.17836795413
+        interface = PC3 f0/0
+    [[NOTE 5]]
+        text = "3"
+        x = 9.05660355064
+        y = 46.0124438229
+        interface = SW2 3
+    [[NOTE 6]]
+        text = "2"
+        x = 65.4516549677
+        y = 42.5122304738
+        interface = SW2 2
+    [[NOTE 7]]
+        text = "1"
+        x = 41.7972913811
+        y = -23.5011913904
+        interface = SW2 1
+    [[NOTE 8]]
+        text = "3"
+        x = 57.0816480359
+        y = 49.6783679541
+        interface = SW1 3
+    [[NOTE 9]]
+        text = "2"
+        x = 15.6991944775
+        y = 50.755260043
+        interface = SW1 2
+    [[NOTE 10]]
+        text = "1"
+        x = 14.0073794496
+        y = -17.7352525095
+        interface = SW1 1
+    [[NOTE 11]]
+        text = "f0/0"
+        x = -4.93956870962
+        y = -3.64028809225
+        interface = PC2 f0/0
+    [[NOTE 12]]
+        text = "f0/1"
+        x = 26.7027086189
+        y = 61.5011913904
+        interface = R2 f0/1
+    [[NOTE 13]]
+        text = "f0/0"
+        x = -6.99843379863
+        y = 22.3539684407
+        interface = R2 f0/0
+    [[NOTE 14]]
+        text = "f0/0"
+        x = 52.3008055225
+        y = -5.25526004304
+        interface = PC1 f0/0
+    [[NOTE 15]]
+        text = "f0/1"
+        x = 72.9909492023
+        y = 22.8508712596
+        interface = R1 f0/1
+    [[NOTE 16]]
+        text = "f0/0"
+        x = 54.4926205504
+        y = 55.7352525095
+        interface = R1 f0/0
